@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    background-color: white;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 1px 4px 5px silver;
+    padding: 0 20px;
+    margin-bottom: 70px;
+}
