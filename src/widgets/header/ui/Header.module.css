@@ -9,11 +9,10 @@
 .box {
     height: auto;
     background-color: chocolate;
-    margin-top: 110px;
+    margin-top: 80px;
 }
 
 .drawerBody {
-    /*margin-left: 220px;*/
     z-index: 8850;
 }
 
@@ -34,48 +33,7 @@
     margin-left: 100px;
 }
 
-.burger {
-    position: absolute;
-    left: 20px;
-    top: 10px;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-}
-.burger span, .burger span:before, .burger span:after{
-    width: 100%;
-    position: absolute;
-    height: 10px;
-    background: #333;
-    display: block;
-    transition: .3s;
+button {
+    border: 1px solid rgb(133, 129, 129);
     border-radius: 5px;
-}
-.burger span:before{
-    content: "";
-    top: -15px;
-    transition: top 300ms 300ms, transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-.burger span{
-    top: 20px;
-}
-.burger span:after{
-    content: "";
-    bottom: -15px;
-    transition: bottom 300ms 300ms, transform 300ms cubic-bezier(0.23, 1, 0.32, 1);}
-
-.burger span:active:before{
-    content: "";
-    top: 0;
-    transform: rotate(45deg);
-    transition: top 300ms, transform 300ms 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.burger span:active:after{
-    content: "";
-    bottom: 0;
-    transform: rotate(-45deg);
-    transition: bottom 300ms, transform 300ms 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.burger span:active{
-    background: rgba(255, 255, 255, 0);
 }
