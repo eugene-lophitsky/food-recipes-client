@@ -18,7 +18,9 @@ export default function Header() {
     const DrawerList = (
         <div className={styles.drawerWrapper}>
             <Box className={styles.box} sx={{ width: 250}} role="presentation"
-                 // onClick={toggleDrawer(false)}
+                 onClick={()=>{
+                     setOpen(false)
+                 }}
             >
                 <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text) => (
@@ -38,7 +40,7 @@ export default function Header() {
         <header className={styles.header}>
           <button style={open ? {cursor: "pointer"} : {cursor: "default"}} id="burgerButton" onClick={()=>{
               open ? setOpen(false) : setOpen(true)}}>
-            <img src={open ? buttonDefault : buttonPressed} />
+            <img src={open ? buttonDefault : buttonPressed} alt="" />
           </button>
           <div className={styles.header__title}>My test header</div>
         </header>
