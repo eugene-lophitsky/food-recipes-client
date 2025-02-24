@@ -1,31 +1,48 @@
-import { useState } from "react";
-import Box from "@mui/material/Box";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 import styles from "./Header.module.css";
 
 export default function Header() {
-  const [openPanel, setOpenPanel] = useState(false);
+    const [open, setOpen] = React.useState(false);
 
-  console.log(openPanel);
+    const toggleDrawer = (newOpen) => () => {
+        setOpen(newOpen);
+    };
 
-  const sideBarDrawer = (newOpen) => () => {
-    setOpenPanel(newOpen);
-  };
+    const DrawerList = (
+        <div className={styles.drawerWrapper}>
+            <Box className={styles.box} sx={{ width: 250}} role="presentation" onClick={toggleDrawer(false)}>
+                <List>
+                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text) => (
+                        <ListItem key={text} disablePadding>
+                            <ListItemButton>
+                                <ListItemText primary={text} />
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
+                </List>
+            </Box>
+        </div>
+    );
 
-  const LinksList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={sideBarDrawer(false)}>
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary={"Page1"} />
-          </ListItemButton>
-        </ListItem>
-      </List>
-    </Box>
-  );
-  console.log(LinksList);
-  return <header className={styles.header}>My test header</header>;
+    return (
+        <div className={styles.drawerBody}>
+            <header className={styles.header}>
+                <div className={styles.header__title}>My test header</div>
+                <div className={styles.burger}>
+                    <span></span>
+                </div>
+            </header>
+            <Button onClick={toggleDrawer(true)}>Open drawer</Button>
+            <Drawer open={open} onClose={toggleDrawer(false)}>
+                {DrawerList}
+            </Drawer>
+        </div>
+    );
 }
