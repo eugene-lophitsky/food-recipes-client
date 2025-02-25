@@ -50,10 +50,3 @@ export default function Header() {
         </div>
     );
 }
-
-
-// <button style={open ? {cursor: "pointer"} : {cursor: "default"}} id="burgerButton" onClick={() => {
-//     open ? setOpen(false) : setOpen(true)
-// }}>
-//     <img src={open ? buttonDefault : buttonPressed} alt=""/>
-// </button>
