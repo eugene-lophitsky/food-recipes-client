@@ -18,7 +18,7 @@ const AddRecipePage = () => {
 
         <span className={styles.ingredientWrapper}>
             <a href="#" className={styles.ingredientButton}></a>
-          <input className={styles.ingredient} type="text" />
+          <input className={styles.ingredient} type="text" placeholder="Ингредиент" />
         </span>
         <button className={styles.saveButton}>Сохранить</button>
       </form>
