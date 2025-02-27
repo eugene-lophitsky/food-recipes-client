@@ -1,39 +1,37 @@
 .MuiPaper-root-MuiDrawer-paper {
-
 }
 
 .drawerWrapper {
-
 }
 
 .box {
-    height: auto;
-    background-color: chocolate;
-    margin-top: 80px;
+  height: auto;
+  background-color: chocolate;
+  margin-top: 80px;
 }
 
 .drawerBody {
-    z-index: 8850;
+  z-index: 8850;
 }
 
 .header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    height: 80px;
-    background-color: white;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-    padding: 0 20px;
-    z-index: 3000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  height: 80px;
+  background-color: white;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 0 20px;
+  z-index: 3000;
 }
 
 .header__title {
-    margin-left: 100px;
+  margin-left: 100px;
 }
 
 button {
-    border: 1px solid rgb(133, 129, 129);
-    border-radius: 5px;
+  border: 1px solid rgb(133, 129, 129);
+  border-radius: 5px;
 }
