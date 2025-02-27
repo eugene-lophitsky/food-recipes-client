@@ -9,7 +9,11 @@ function App() {
       <Routes>
         {routes.map((route) => {
           return (
-              <Route key={route.path} path={route.path} element={<Layout>{route.element}</Layout>} />
+            <Route
+              key={route.path}
+              path={route.path}
+              element={<Layout>{route.element}</Layout>}
+            />
           );
         })}
       </Routes>

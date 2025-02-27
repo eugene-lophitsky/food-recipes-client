@@ -3,13 +3,25 @@ import styles from "./Navigation.module.css";
 
 const Navigation = () => {
   return (
-    <div className={styles.container}>
-      <NavLink to="/">Список рецептов</NavLink>
-      <NavLink to="/add-recipe">Добавить рецепт</NavLink>
-      <NavLink to="/recipe">Рецепт</NavLink>
-      <NavLink to="/categories">Категории</NavLink>
-      <NavLink to="/users">Пользователи</NavLink>
-      <NavLink to="/settings">Настройки</NavLink>
+    <div className={styles.navLinksContainer}>
+      <NavLink className={styles.navLink} to="/">
+        Список рецептов
+      </NavLink>
+      <NavLink className={styles.navLink} to="/add-recipe">
+        Добавить рецепт
+      </NavLink>
+      <NavLink className={styles.navLink} to="/recipe">
+        Рецепт
+      </NavLink>
+      <NavLink className={styles.navLink} to="/categories">
+        Категории
+      </NavLink>
+      <NavLink className={styles.navLink} to="/users">
+        Пользователи
+      </NavLink>
+      <NavLink className={styles.navLink} to="/settings">
+        Настройки
+      </NavLink>
     </div>
   );
 };

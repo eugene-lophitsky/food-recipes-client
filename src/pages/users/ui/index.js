@@ -1,1 +1,1 @@
-export { default as UsersPage} from  "./UsersPage.jsx";
+export { default as UsersPage } from "./UsersPage.jsx";
