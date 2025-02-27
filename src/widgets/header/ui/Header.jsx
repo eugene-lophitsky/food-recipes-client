@@ -13,7 +13,6 @@ export default function Header() {
     const [open, setOpen] = useState();
 
     const toggleDrawer = () => {
-        // open ? setOpen(false) : setOpen(true)
         setOpen(!open);
     }
 
@@ -41,11 +40,10 @@ export default function Header() {
         <div className={styles.drawerBody}>
             <header className={styles.header}>
                 <button style={open ? {cursor: "pointer"} : {cursor: "default"}} id="burgerButton" onClick={toggleDrawer}>
-                    <img src={open ? buttonDefault : buttonPressed} alt=""/>
+                    <img src={open ? buttonPressed : buttonDefault} alt=""/>
                 </button>
                 <div className={styles.header__title}>My test header</div>
             </header>
-
             <Drawer open={open}>{DrawerList}</Drawer>
         </div>
     );
