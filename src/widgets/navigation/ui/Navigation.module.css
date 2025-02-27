@@ -1,5 +1,19 @@
-.container {
+.navLinksContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px 0;
+}
+
+.navLink {
+  font-size: 18px;
+  font-family: Calibri, sans-serif;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #aca9a9;
+  padding: 6px 11px 6px 11px;
+}
+
+.navLink:hover {
+  color: #ffffff;
+  background-color: #c8c4c4;
 }
