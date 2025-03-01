@@ -13,6 +13,7 @@ const validate = (values) => {
 };
 
 const AddRecipePage = () => {
+
   const formik = useFormik({
     initialValues: {
       recipeName: "",
@@ -56,6 +57,8 @@ const AddRecipePage = () => {
           <a href="#" className={styles.ingredientButton}></a>
           <input
             className={styles.ingredient}
+            id="ingredient"
+            name="ingredient"
             type="text"
             placeholder="Ингредиент"
           />
