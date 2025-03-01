@@ -1,74 +1,85 @@
 .container {
-    margin-left: 50px;
+  margin-left: 50px;
 }
 
 .title {
-    font-size: 24px;
-    font-family: Calibri, sans-serif;
-    font-weight: bold;
+  font-size: 24px;
+  font-family: Calibri, sans-serif;
+  font-weight: bold;
 }
 
 .formBody {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
 }
 
 .recipeName {
-    font-size: 17px;
-    padding: 4px 45px 4px 2px;
-    border-radius: 5px;
+  font-size: 17px;
+  padding: 4px 45px 4px 2px;
+  border-radius: 5px;
+}
+
+.recipeNameError {
+  height: 19px;
 }
 
 input::placeholder {
-    font-style: italic;
+  font-style: italic;
 }
 
 label {
-    font-size: 18px;
-    font-family: Calibri, sans-serif;
-    font-weight: 600;
-    margin: 10px 0 5px 0;
+  font-size: 18px;
+  font-family: Calibri, sans-serif;
+  font-weight: 600;
+  margin: 10px 0 5px 0;
 }
 
 .description {
-    font-size: 18px;
-    padding: 0 0 0 2px;
-    border-radius: 5px;
+  font-size: 18px;
+  padding: 0 0 0 2px;
+  border-radius: 5px;
+}
+
+.descriptionError {
+  height: 19px;
 }
 
 .description::placeholder {
-    font-style: italic;
+  font-style: italic;
 }
 
 .ingredientWrapper {
-    position: relative;
-    margin: 15px 0 5px 0;
+  position: relative;
+  margin: 15px 0 5px 0;
 }
 
 .ingredient {
-    font-size: 17px;
-    padding: 8px 245px 5px 2px;
-    border-radius: 5px;
+  font-size: 17px;
+  padding: 8px 245px 5px 2px;
+  border-radius: 5px;
 }
 
 .ingredient::placeholder {
-    font-style: italic;
+  font-style: italic;
 }
 
 .ingredientButton {
-    position: absolute;
-    top: 1px;
-    right: 1px;
-    width: 32px;
-    height: 34px;
-    font-size: 18px;
-    background-color: #0f970f;
-    border-radius: 5px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 32px;
+  height: 34px;
+  font-size: 18px;
+  background-color: #0f970f;
+  border-radius: 5px;
 }
 
+.fieldLengthAlert {
+  height: 19px;
+}
 
 .saveButton {
-    padding: 7px 8px;
-    margin-top: 15px;
+  padding: 7px 8px;
+  margin-top: 15px;
 }

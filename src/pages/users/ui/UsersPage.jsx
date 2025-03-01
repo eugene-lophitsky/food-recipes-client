@@ -1,5 +1,12 @@
+import AuthForm from "../../../widgets/authform/ui/AuthForm.jsx";
+
 const UsersPage = () => {
-  return <div>UsersPage</div>;
+  return (
+    <div>
+      UsersPage
+      <AuthForm />
+    </div>
+  );
 };
 
 export default UsersPage;
