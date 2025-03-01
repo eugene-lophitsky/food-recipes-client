@@ -1,5 +1,6 @@
 import styles from "./AddRecipePage.module.css";
 import { useFormik } from "formik";
+import axios from "axios";
 
 const validate = (values) => {
   const errors = {};
@@ -21,6 +22,15 @@ const AddRecipePage = () => {
     },
     validate,
   });
+
+  async function gatherRecipes () {
+    try {
+      const response = await axios.get("http://localhost:8080/api/recipes");
+      console.log(response)
+    } catch (error) {
+     console.error(error)
+    }
+  }
 
   return (
     <div className={styles.container}>
