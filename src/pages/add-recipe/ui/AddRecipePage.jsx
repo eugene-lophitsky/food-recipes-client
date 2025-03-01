@@ -5,13 +5,9 @@ const validate = (values) => {
   const errors = {};
   if (!values.recipeName) {
     errors.recipeName = "Поле ввода пустое";
-  } else if (values.recipeName.length < 10) {
-    errors.recipeName = "Введите не менее 10 символов";
   }
   if (!values.description) {
     errors.description = "Поле ввода пустое";
-  } else if (values.description.length < 20) {
-    errors.description = "Описание не может содержать менее 20 символов";
   }
   return errors;
 };
