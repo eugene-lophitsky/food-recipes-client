@@ -1,5 +1,6 @@
 import styles from "./AddRecipePage.module.css";
 import { useFormik } from "formik";
+import {useEffect, useState} from "react";
 import axios from "axios";
 
 const validate = (values) => {
@@ -15,6 +16,19 @@ const validate = (values) => {
 
 const AddRecipePage = () => {
 
+  const[recipes, setRecipes] = useState([]);
+
+  useEffect(()=>{
+   axios.get("http://localhost:8080/api/recipes")
+       .then(response =>console.log(response.data))
+       .catch(function (error) {
+         console.log(error);
+       })
+       .finally(function(){
+        setRecipes(recipes);
+       })
+  }, [recipes])
+
   const formik = useFormik({
     initialValues: {
       recipeName: "",
@@ -22,15 +36,6 @@ const AddRecipePage = () => {
     },
     validate,
   });
-
-  async function gatherRecipes () {
-    try {
-      const response = await axios.get("http://localhost:8080/api/recipes");
-      console.log(response)
-    } catch (error) {
-     console.error(error)
-    }
-  }
 
   return (
     <div className={styles.container}>
@@ -76,6 +81,13 @@ const AddRecipePage = () => {
         <button type="submit" className={styles.saveButton}>
           Сохранить
         </button>
+        <div>
+          {recipes.map((item, index)=>{
+            return <div key={index}>
+                {item["recipe_name"]}
+                    </div>
+          })}
+        </div>
       </form>
     </div>
   );
