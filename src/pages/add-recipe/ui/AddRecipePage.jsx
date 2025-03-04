@@ -19,15 +19,15 @@ const AddRecipePage = () => {
   const[recipes, setRecipes] = useState([]);
 
   useEffect(()=>{
-   axios.get("http://localhost:8080/api/recipes")
-       .then(response =>console.log(response.data))
+   axios.get("http://localhost:8080/api/ingredients")
+       .then((response) => {
+       console.log(response.data)
+         setRecipes(response.data)
+       })
        .catch(function (error) {
          console.log(error);
        })
-       .finally(function(){
-        setRecipes(recipes);
-       })
-  }, [recipes])
+  }, [])
 
   const formik = useFormik({
     initialValues: {
@@ -82,10 +82,14 @@ const AddRecipePage = () => {
           Сохранить
         </button>
         <div>
-          {recipes.map((item, index)=>{
-            return <div key={index}>
-                {item["recipe_name"]}
-                    </div>
+          {recipes.map((item, index) => {
+            return (
+              <div key={index} style={{width: "350px"}}>
+                <div>{item.id}</div>
+                <div><h4>{item.recipe_name}</h4></div>
+                <div><h4>{item.recipe_description}</h4></div>
+              </div>
+            );
           })}
         </div>
       </form>
