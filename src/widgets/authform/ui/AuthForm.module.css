@@ -1,0 +1,42 @@
+body {
+  font-family: Calibri, sans-serif;
+}
+
+.usernameWrapper {
+  margin-top: 10px;
+}
+
+.authFormBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  padding: 4px 45px 4px 2px;
+}
+
+.password {
+  padding: 4px 45px 4px 2px;
+}
+
+.usernameAlert {
+  height: 18px;
+}
+
+.passwordAlert {
+  height: 18px;
+}
+
+.usernameWrapper {
+  padding: 5px 0;
+}
+
+.passwordWrapper {
+  padding: 5px 0;
+  margin: 20px 0;
+}
+
+.authButton {
+  padding: 5px 90px;
+  margin-top: 10px;
+}
