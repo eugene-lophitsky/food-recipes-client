@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import axios from "axios";
 import { MultiSelect } from "primereact/multiselect";
-import "primeflex/primeflex.css";
+import { Button } from "primereact/button";
 
 const validate = (values) => {
   const errors = {};
@@ -17,28 +17,30 @@ const validate = (values) => {
 };
 
 const AddRecipePage = () => {
-  const [ingredients, setIngredients] = useState();
+  // const [ingredients, setIngredients] = useState();
+  const [selectedCities, setSelectedCities] = useState(null);
 
   const cities = [
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' }
+    { name: "New York", code: "NY" },
+    { name: "Rome", code: "RM" },
+    { name: "London", code: "LDN" },
+    { name: "Istanbul", code: "IST" },
+    { name: "Paris", code: "PRS" },
   ];
 
-  function createRecipe (e) {
+  function createRecipe(e) {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/recipes", {
-      recipe_name: formik.values.recipeName,
-      recipe_description: formik.values.description,
-    })
-        .then(function (response){
-          console.log(response)
-        })
-        .catch(function (error){
-          console.log(error)
-        })
+    axios
+      .post("http://localhost:8080/api/recipes", {
+        recipe_name: formik.values.recipeName,
+        recipe_description: formik.values.description,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   const formik = useFormik({
@@ -81,37 +83,33 @@ const AddRecipePage = () => {
           {formik.errors.description ? formik.errors.description : null}
         </div>
 
-        <div className={styles.listBody}>
-          <MultiSelect
-            value={ingredients}
-            onChange={(e) => setIngredients(e.value)} options={cities}
-            optionLabel="name"
-            placeholder="Выберите продукт"
-            maxSelectedLabels={3}
-          />
+        <div className={styles.listBody}></div>
+        <div>
+          <Button label="Нажми меня" icon="pi pi-check" />
         </div>
 
-        <button type="submit" className={styles.saveButton} onClick={createRecipe}>
+        <button
+          type="submit"
+          className={styles.saveButton}
+          onClick={createRecipe}
+        >
           Сохранить
         </button>
         <div></div>
       </form>
+      <div className={styles.card}>
+        <MultiSelect
+          value={selectedCities}
+          onChange={(e) => setSelectedCities(e.value)}
+          options={cities}
+          optionLabel="name"
+          placeholder="Select Cities"
+          maxSelectedLabels={3}
+          className="w-full md:w-20rem"
+        />
+      </div>
     </div>
   );
 };
 
 export default AddRecipePage;
-
-// {ingredients.map((item, index) => {
-//   return (
-//       <div key={index} style={{ width: "350px" }}>
-//         <div>{item.id}</div>
-//         <div>
-//           <h4>{item.recipe_name}</h4>
-//         </div>
-//         <div>
-//           <h4>{item.recipe_description}</h4>
-//         </div>
-//       </div>
-//   );
-// })}
