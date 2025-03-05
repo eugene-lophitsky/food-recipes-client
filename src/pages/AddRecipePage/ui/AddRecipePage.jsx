@@ -29,7 +29,7 @@ const AddRecipePage = () => {
 
   function createRecipe (e) {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/ingredients", {
+    axios.post("http://localhost:8080/api/recipes", {
       recipe_name: formik.values.recipeName,
       recipe_description: formik.values.description,
     })

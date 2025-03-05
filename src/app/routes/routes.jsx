@@ -1,4 +1,4 @@
-import AddRecipePage from "../../pages/add-recipe/ui/AddRecipePage.jsx";
+import AddRecipePage from "../../pages/AddRecipePage/ui/AddRecipePage.jsx";
 import { RecipesListPage } from "../../pages/recipes-list/ui/index.js";
 import { RecipePage } from "../../pages/recipe/ui/index.js";
 import { CategoriesPage } from "../../pages/categories/ui/index.js";
