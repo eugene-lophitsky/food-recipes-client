@@ -49,32 +49,6 @@ label {
   font-style: italic;
 }
 
-.ingredientWrapper {
-  position: relative;
-  margin: 15px 0 5px 0;
-}
-
-.ingredient {
-  font-size: 17px;
-  padding: 8px 245px 5px 2px;
-  border-radius: 5px;
-}
-
-.ingredient::placeholder {
-  font-style: italic;
-}
-
-.ingredientButton {
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  width: 32px;
-  height: 34px;
-  font-size: 18px;
-  background-color: #0f970f;
-  border-radius: 5px;
-}
-
 .fieldLengthAlert {
   height: 19px;
 }
@@ -82,4 +56,9 @@ label {
 .saveButton {
   padding: 7px 8px;
   margin-top: 15px;
+}
+
+.listBody {
+  display: flex;
+  justify-content: center;
 }
