@@ -3,7 +3,6 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import axios from "axios";
 import { MultiSelect } from "primereact/multiselect";
-import { Button } from "primereact/button";
 
 const validate = (values) => {
   const errors = {};
@@ -17,8 +16,7 @@ const validate = (values) => {
 };
 
 const AddRecipePage = () => {
-  // const [ingredients, setIngredients] = useState();
-  const [selectedCities, setSelectedCities] = useState(null);
+  const [selectedCities, setSelectedCities] = useState("");
 
   const cities = [
     { name: "New York", code: "NY" },
@@ -37,6 +35,7 @@ const AddRecipePage = () => {
       })
       .then(function (response) {
         console.log(response);
+        formik.resetForm({ values: { recipeName: "", description: "" } });
       })
       .catch(function (error) {
         console.log(error);
@@ -84,9 +83,7 @@ const AddRecipePage = () => {
         </div>
 
         <div className={styles.listBody}></div>
-        <div>
-          <Button label="Нажми меня" icon="pi pi-check" />
-        </div>
+        <div></div>
 
         <button
           type="submit"
