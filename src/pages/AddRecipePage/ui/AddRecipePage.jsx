@@ -17,6 +17,7 @@ const validate = (values) => {
 
 const AddRecipePage = () => {
   const [selectedCities, setSelectedCities] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const cities = [
     { name: "New York", code: "NY" },
@@ -35,7 +36,13 @@ const AddRecipePage = () => {
       })
       .then(function (response) {
         console.log(response);
+        if (response.status === 200) {
+          setSuccessMessage("Рецепт успешно добавлен");
+        }
         formik.resetForm({ values: { recipeName: "", description: "" } });
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 1000);
       })
       .catch(function (error) {
         console.log(error);
@@ -62,8 +69,7 @@ const AddRecipePage = () => {
           type="text"
           placeholder="Введите название"
           value={formik.values.recipeName}
-          onChange={formik.handleChange}
-        />
+          onChange={formik.handleChange}/>
         <div className={styles.recipeNameError}>
           {formik.errors.recipeName ? formik.errors.recipeName : null}
         </div>
@@ -76,35 +82,26 @@ const AddRecipePage = () => {
           value={formik.values.description}
           onChange={formik.handleChange}
           cols={40}
-          rows={7}
-        />
+          rows={7}/>
         <div className={styles.descriptionError}>
           {formik.errors.description ? formik.errors.description : null}
         </div>
-
         <div className={styles.listBody}></div>
-        <div></div>
-
-        <button
-          type="submit"
+        <MultiSelect
+            value={selectedCities}
+            onChange={(e) => setSelectedCities(e.value)}
+            options={cities}
+            optionLabel="name"
+            placeholder="Выберите ингредиент"
+            maxSelectedLabels={3}
+            className="w-full md:w-26.2rem"/>
+        <button type="submit"
           className={styles.saveButton}
-          onClick={createRecipe}
-        >
+          onClick={createRecipe}>
           Сохранить
         </button>
-        <div></div>
       </form>
-      <div className={styles.card}>
-        <MultiSelect
-          value={selectedCities}
-          onChange={(e) => setSelectedCities(e.value)}
-          options={cities}
-          optionLabel="name"
-          placeholder="Select Cities"
-          maxSelectedLabels={3}
-          className="w-full md:w-20rem"
-        />
-      </div>
+      <div className={styles.successMessage}>{successMessage}</div>
     </div>
   );
 };

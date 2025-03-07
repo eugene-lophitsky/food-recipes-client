@@ -18,6 +18,7 @@
   font-size: 17px;
   padding: 4px 45px 4px 2px;
   border-radius: 5px;
+  border: 1px solid #959090;
 }
 
 .recipeNameError {
@@ -63,11 +64,11 @@ label {
   justify-content: center;
 }
 
-.card {
-  display: flex;
-  justify-content: center;
-  background: var(--surface-card);
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+.successMessage {
+  width: 100%;
+  font-size: 18px;
+  font-family: Calibri, sans-serif;
+  background-color: #faf4f4;
+  text-align: center;
+  margin-top: 10px;
 }
