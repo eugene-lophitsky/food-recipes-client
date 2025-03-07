@@ -1,6 +1,6 @@
 import styles from "./AddRecipePage.module.css";
 import { useFormik } from "formik";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import { MultiSelect } from "primereact/multiselect";
 
@@ -16,8 +16,8 @@ const validate = (values) => {
 };
 
 const AddRecipePage = () => {
-  const [selectedCities, setSelectedCities] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [foodName, setFoodName] = useState("");
 
   const cities = [
     { name: "New York", code: "NY" },
@@ -48,6 +48,17 @@ const AddRecipePage = () => {
         console.log(error);
       });
   }
+
+  useEffect(()=> {
+    axios.get("http://localhost:8080/api/ingredients")
+        .then((response)=>{
+          setFoodName(response.data);
+        })
+        .catch((error)=>{
+          console.log(error)
+        })
+  }, [])
+
 
   const formik = useFormik({
     initialValues: {
@@ -88,8 +99,8 @@ const AddRecipePage = () => {
         </div>
         <div className={styles.listBody}></div>
         <MultiSelect
-            value={selectedCities}
-            onChange={(e) => setSelectedCities(e.value)}
+            value={foodName}
+            onChange={(e) => setFoodName(e.value)}
             options={cities}
             optionLabel="name"
             placeholder="Выберите ингредиент"
