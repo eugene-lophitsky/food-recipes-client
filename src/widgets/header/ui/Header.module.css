@@ -28,5 +28,6 @@
 }
 
 .header__title {
-  margin-left: 100px;
+  font-size: 35px;
+  margin-left: 10px;
 }

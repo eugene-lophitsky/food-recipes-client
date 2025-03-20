@@ -16,16 +16,9 @@ const validate = (values) => {
 };
 
 const AddRecipePage = () => {
-  const [successMessage, setSuccessMessage] = useState("");
-  const [foodName, setFoodName] = useState("");
-
-  const cities = [
-    { name: "New York", code: "NY" },
-    { name: "Rome", code: "RM" },
-    { name: "London", code: "LDN" },
-    { name: "Istanbul", code: "IST" },
-    { name: "Paris", code: "PRS" },
-  ];
+  const [dataSaved, setDataSaved] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+  const [selectedIngredients, setSelectedIngredients] = useState();
 
   function createRecipe(e) {
     e.preventDefault();
@@ -35,14 +28,10 @@ const AddRecipePage = () => {
         recipe_description: formik.values.description,
       })
       .then(function (response) {
-        console.log(response);
         if (response.status === 200) {
-          setSuccessMessage("Рецепт успешно добавлен");
+          setDataSaved("Рецепт успешно добавлен");
         }
         formik.resetForm({ values: { recipeName: "", description: "" } });
-        setTimeout(() => {
-          setSuccessMessage("");
-        }, 1000);
       })
       .catch(function (error) {
         console.log(error);
@@ -52,13 +41,12 @@ const AddRecipePage = () => {
   useEffect(()=> {
     axios.get("http://localhost:8080/api/ingredients")
         .then((response)=>{
-          setFoodName(response.data);
+          setIngredients(response.data);
         })
         .catch((error)=>{
           console.log(error)
         })
   }, [])
-
 
   const formik = useFormik({
     initialValues: {
@@ -99,10 +87,10 @@ const AddRecipePage = () => {
         </div>
         <div className={styles.listBody}></div>
         <MultiSelect
-            value={foodName}
-            onChange={(e) => setFoodName(e.value)}
-            options={cities}
-            optionLabel="name"
+            value={selectedIngredients}
+            onChange={(e) => setSelectedIngredients(e.value)}
+            options={ingredients}
+            optionLabel="ingredient"
             placeholder="Выберите ингредиент"
             maxSelectedLabels={3}
             className="w-full md:w-26.2rem"/>
@@ -112,7 +100,11 @@ const AddRecipePage = () => {
           Сохранить
         </button>
       </form>
-      <div className={styles.successMessage}>{successMessage}</div>
+      <div className={styles.dataSaved} onClick={()=> {
+          dataSaved.length !== 0 ? setDataSaved("") : null
+      }}>
+        {dataSaved}
+      </div>
     </div>
   );
 };

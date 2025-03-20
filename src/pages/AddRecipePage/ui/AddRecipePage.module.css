@@ -64,11 +64,11 @@ label {
   justify-content: center;
 }
 
-.successMessage {
+.dataSaved {
   width: 100%;
   font-size: 18px;
   font-family: Calibri, sans-serif;
-  background-color: #faf4f4;
   text-align: center;
   margin-top: 10px;
+  cursor: pointer;
 }

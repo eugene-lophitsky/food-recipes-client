@@ -10,7 +10,6 @@ const RecipesListPage = () => {
     axios
       .get("http://localhost:8080/api/recipes")
       .then((response) => {
-        console.log(response.data);
         setRecipes(response.data);
       })
       .catch((error) => {

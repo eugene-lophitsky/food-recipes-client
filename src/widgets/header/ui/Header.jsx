@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <div className={styles.drawerBody}>
       <header className={styles.header}>
-        <div className={styles.header__title}>My test header</div>
+        <div className={styles.header__title}>Книга рецептов</div>
       </header>
     </div>
   );
